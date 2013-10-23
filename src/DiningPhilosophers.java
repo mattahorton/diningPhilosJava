@@ -14,7 +14,7 @@ public class DiningPhilosophers {
 		try{
 			philosophers = Integer.parseInt(args[0]); //Allows user to specify number of philosophers
 			duration = 1000*Integer.parseInt(args[1]); //Allows user to enter duration of run in seconds
-		} catch (NumberFormatException e) {
+		} catch (Exception e) {
 			System.out.println("Please input two integer arguments. The first is the number of philosophers at the table. The second" +
 					" respresents how long the philosophers will eat.");
 		}
