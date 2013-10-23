@@ -12,7 +12,7 @@ public class DiningPhilosophers {
 		
 		//Parse user-provided values
 		try{
-			philosophers = Integer.parseInt(args[0]); //Allows user to specify number of philosophersd
+			philosophers = Integer.parseInt(args[0]); //Allows user to specify number of philosophers
 			duration = 1000*Integer.parseInt(args[1]); //Allows user to enter duration of run in seconds
 		} catch (NumberFormatException e) {
 			System.out.println("Please input two integer arguments. The first is the number of philosophers at the table. The second" +
@@ -26,6 +26,7 @@ public class DiningPhilosophers {
 		Philosopher[] philos = new Philosopher[philosophers];
 		for(int i = 0; i < philosophers; i++){
 			philos[i] = new Philosopher(waiter,i);
+			philos[i].getT().start();
 		}
 		
 		//Wait for philosophers to eat and think

@@ -14,6 +14,8 @@ public class Waiter {
 	public Waiter(int philoNum){
 		this.philoNum = philoNum;
 		state  = new State[philoNum];
+		leftHungry = new boolean[philoNum];
+		rightHungry = new boolean[philoNum];
 		for(int i = 0; i < philoNum; i++) {
 			state[i] = State.THINKING;
 			leftHungry[i] = false;

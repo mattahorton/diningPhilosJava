@@ -10,11 +10,13 @@ public class Philosopher implements Runnable {
 	int numThink = 0;
 	long elapsed,elapEat;
 	Boolean stopped = false;
+	Thread t;
 	
 	//Constructor
 	public Philosopher(Waiter waiter, int identifier){
 		this.waiter = waiter;
 		this.identifier = identifier;
+		t = new Thread(this);
 	}
 
 	//Thread operations while not interrupted
@@ -75,13 +77,13 @@ public class Philosopher implements Runnable {
 	
 	//Formats time data regarding thinking to be printed
 	private void printThink(int i, int count, long time) {
-		System.out.println(count + ": Philosopher " + i + " has been thinking for " + time/1000 + " seconds.");
+		System.out.println(count + ": Philosopher " + i + " has been thinking for " + ((double)time)/1000 + " seconds.");
 	}
 	
 	//Formats time data regarding eating to be printed
 	private void printEat(int i, int count, long time, String reqTime, String eatTime, String finishTime) {
 		System.out.println(count + ": Philosopher " + i + " requested to eat at " + reqTime + ", started eating at "
-				+ eatTime + ", finished eating at " + finishTime + ", and ate for " + time/1000 + " seconds.");
+				+ eatTime + ", finished eating at " + finishTime + ", and ate for " + ((double)time)/1000 + " seconds.");
 	}
 	
     public Boolean getStop() {
@@ -90,5 +92,9 @@ public class Philosopher implements Runnable {
 
     public void setStop(Boolean stop) {
         this.stopped = stop;
-    }  
+    }
+
+	public Thread getT() {
+		return t;
+	}    
 }
